@@ -1,8 +1,7 @@
 // app.js
 import express from 'express';
 import mongoose from 'mongoose';
-import userRoutes from '../simpleNodeApp/routes/userRoute.js';
-import orderRoutes from '../simpleNodeApp/routes/orderRoute.js';
+import orderRoutes from '../simpleNodeApp/routes/orderRoute.js'
 import dotenv from 'dotenv';
 
 const app = express();
@@ -17,11 +16,9 @@ mongoose.connect(process.env.MONGODB_URL, {
   console.log('Connected to MongoDB');
 }).catch(err => {
   console.error('Error connecting to MongoDB:', err.message);
-  process.exit(1);
 });
 
 // Routes
-app.use('/api', userRoutes);
 app.use('/api', orderRoutes)
 
 // Start the server
