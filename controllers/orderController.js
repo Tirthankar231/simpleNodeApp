@@ -38,7 +38,7 @@ class OrderController {
   }
 
     /**
-   * List orders with optional filters for limit, offset, and name.
+   * List orders with optional filters for limit, offset.
    * @param {Object} req - Express request object.
    * @param {Object} res - Express response object.
    */
