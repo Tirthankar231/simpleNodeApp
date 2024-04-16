@@ -1,13 +1,13 @@
 // routes/orderRoute.js
 import express from 'express';
-import { createOrder, updateOrder } from '../controllers/orderController.js';
+import orderController from '../controllers/orderController.js';
 
 const router = express.Router();
 
 //Create a new order
-router.post('/orders', createOrder);
+router.post('/orders', orderController.createOrder);
 
 //Update a particular order with the help of its id
-router.put('/orders/:id', updateOrder);
+router.put('/orders/:id', orderController.updateOrder);
 
 export default router;
