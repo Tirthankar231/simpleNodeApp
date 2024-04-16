@@ -2,6 +2,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import userRoutes from '../simpleNodeApp/routes/userRoute.js';
+import orderRoutes from '../simpleNodeApp/routes/orderRoute.js';
 import dotenv from 'dotenv';
 
 const app = express();
@@ -21,6 +22,7 @@ mongoose.connect(process.env.MONGODB_URL, {
 
 // Routes
 app.use('/api', userRoutes);
+app.use('/api', orderRoutes)
 
 // Start the server
 const PORT = process.env.PORT || 3000;
