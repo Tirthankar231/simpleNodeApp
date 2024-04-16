@@ -36,6 +36,36 @@ class OrderController {
       res.status(400).json({ message: error.message });
     }
   }
+
+    /**
+   * List orders with optional filters for limit, offset, and name.
+   * @param {Object} req - Express request object.
+   * @param {Object} res - Express response object.
+   */
+    async listOrders(req, res) {
+      try {
+        const params = req.query;
+        const orders = await orderService.listOrders(params);
+        res.json(orders);
+      } catch (error) {
+        res.status(500).json({ error: error.message });
+      }
+    }
+  
+    /**
+     * Get an order by ID.
+     * @param {Object} req - Express request object.
+     * @param {Object} res - Express response object.
+     */
+    async getOrderById(req, res) {
+      try {
+        const { id } = req.params;
+        const order = await orderService.getOrderById(id);
+        res.json(order);
+      } catch (error) {
+        res.status(404).json({ error: error.message });
+      }
+    }
 }
 
 export default new OrderController();
